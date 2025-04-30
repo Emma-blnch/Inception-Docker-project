@@ -1,5 +1,10 @@
 FROM debian:bullseye
 
-RUN
+RUN apt-get update && apt-get upgrade -y && apt-get install -y wordpress
 
-EXPOSE
+COPY conf/mariadb.conf /etc/mysql/mariadb.conf.d/50-server.cnf
+
+COPY tools/initiate_database.sh /usr/local/bin/initiate_database.sh
+RUN chmod +x /usr/local/bin/initiate_database.sh
+
+CMD ["/usr/local/bin/initiate_database.sh"]
