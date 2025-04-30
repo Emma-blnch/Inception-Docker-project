@@ -13,4 +13,5 @@ mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';"
 
 mysql -e "FLUSH PRIVILEGES;"
 
+echo "Lancement de la base de données..."
 exec mysqld_safe

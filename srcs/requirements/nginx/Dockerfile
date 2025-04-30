@@ -1,7 +1,8 @@
 FROM debian:bullseye
 
 # Mise à jour du système et installation des paquets nécessaires (-y pour dire oui a toutes les questions sans bloquer)
-RUN apt-get update && apt-get upgrade -y && apt-get install -y nginx openssl
+RUN apt-get update && apt-get upgrade -y && apt-get install -y nginx openssl &&\
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Création du dossier pour les certificats SSL
 RUN mkdir -p /etc/nginx/ssl

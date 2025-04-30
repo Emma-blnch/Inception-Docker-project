@@ -1,10 +1,18 @@
 FROM debian:bullseye
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y wordpress
+RUN apt-get update && apt-get upgrade -y && apt-get install -y wget\
+    php php-fpm php-mysql php-curl php-mbstring php-xml php-gd php-zip\
+    mariadb-client &&\
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
-COPY conf/mariadb.conf /etc/mysql/mariadb.conf.d/50-server.cnf
+RUN wget https://fr.wordpress.org/wordpress-6.0-fr_FR.tar.gz -P /var/www &&\
+    cd /var/www && tar -xzf wordpress-6.0-fr_FR.tar.gz && rm wordpress-6.0-fr_FR.tar.gz
 
-COPY tools/initiate_database.sh /usr/local/bin/initiate_database.sh
-RUN chmod +x /usr/local/bin/initiate_database.sh
+RUN sed -i "s|listen = .*|listen = 9000|" /etc/php/*/fpm/pool.d/www.conf
 
-CMD ["/usr/local/bin/initiate_database.sh"]
+COPY tools/setup_wordpress.sh /usr/local/bin/setup_wordpress.sh
+RUN chmod +x /usr/local/bin/setup_wordpress.sh
+
+RUN chown -R www-data:www-data /var/www/wordpress
+
+CMD ["/usr/local/bin/setup_wordpress.sh"]
