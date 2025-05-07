@@ -1,22 +1,22 @@
-# 🚧 Inception - Projet Docker [EN COURS]
+# 🚧 Inception - Docker Project [IN PROGRESS]
 
-Ce projet est réalisé dans le cadre de la formation à l'école 42.  
-L'objectif est de configurer une infrastructure complète de services en utilisant **Docker** et **Docker Compose**, sans outil d'orchestration externe.
-
-
-## 🔧 Objectifs du projet
-
-- Créer une stack de conteneurs Docker auto-suffisante et isolée.
-- Déployer et configurer les services suivants :
-  - **NGINX** avec un certificat SSL auto-signé
-  - **WordPress** installé automatiquement à partir d’un script
-  - **MariaDB** pour gérer la base de données
-- Utiliser **Docker Compose** pour orchestrer les services
-- Gérer la persistance des données via des volumes
-- Respecter les bonnes pratiques Docker (structure, sécurité, optimisation d’image)
+This project is part of the 42 school common core.  
+It aims to configure a complete infrastructure of services using **Docker** and **Docker Compose**, without any external orchestration tools.
 
 
-## 📁 Structure du projet
+## 🔧 Project objectives
+
+- Create a self-sufficient and isolated Docker container stack.
+- Deploy and configure the following services:
+  - **NGINX** with a self-signed SSL certificate
+  - **WordPress** installed automatically from a script
+  - **MariaDB** for database management
+- Use **Docker Compose** to orchestrate services
+- Manage data persistence via volumes
+- Respect Docker best practices (structure, security, image optimization)
+
+
+## 📁 Project structure
 
 ```bash
 srcs/
@@ -26,19 +26,18 @@ srcs/
 │   ├── nginx/          # Dockerfile + conf SSL + config NGINX
 │   ├── mariadb/        # Dockerfile + init DB + config SQL
 │   └── wordpress/      # Dockerfile + setup WordPress auto
-├── Makefile            # Commandes utiles : up, down, clean...
-└── .env.example        # Variables d’environnement à adapter
+└── Makefile            # Useful commands : up, down, clean...
 ```
      
-## 🖥️ Services inclus
+## 🖥️ Services included
 
 | Service	| Description |
 |---      |---          |
-| NGINX |	Serveur web HTTPS avec certificat auto-signé |
-| WordPress	| Installation auto, configuré via variables d’environnement |
-| MariaDB	| Base de données persistante avec utilisateur dédié |    
+| NGINX | HTTPS Web Server with self-signed certificate |
+| WordPress | Auto install, configured via environment variables |
+| MariaDB | Persistent database with dedicated user | 
 
 
-## 📌 Statut : EN COURS
+## 📌 Status : IN PROGRESS
 
-Le projet est en cours de finalisation sur ma machine virtuelle Debian.
+The project is being finalized on my Debian virtual machine.
