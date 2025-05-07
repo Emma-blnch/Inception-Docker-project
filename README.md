@@ -32,10 +32,11 @@ srcs/
      
 ## 🖥️ Services inclus
 
-Service	| Description
-NGINX |	Serveur web HTTPS avec certificat auto-signé
-WordPress	| Installation auto, configuré via variables d’environnement
-MariaDB	| Base de données persistante avec utilisateur dédié    
+| Service	| Description |
+-------------------------
+| NGINX |	Serveur web HTTPS avec certificat auto-signé |
+| WordPress	| Installation auto, configuré via variables d’environnement |
+| MariaDB	| Base de données persistante avec utilisateur dédié |    
 
 
 ## 📌 Statut : EN COURS
