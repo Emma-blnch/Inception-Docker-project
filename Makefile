@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eblancha <eblancha@student.42.fr>          +#+  +:+       +#+         #
+#    By: ema_blnch <ema_blnch@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 10:42:25 by eblancha          #+#    #+#              #
-#    Updated: 2025/04/30 11:32:46 by eblancha         ###   ########.fr        #
+#    Updated: 2025/05/08 09:57:12 by ema_blnch        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,9 @@ restart :
 # affiche liste des containers en cours d'exec
 status : 
 	docker ps
+
+clean:
+	docker-compose -f ./srcs/docker-compose.yml down --remove-orphans
 
 fclean:
 	docker-compose -f ./srcs/docker-compose.yml down -v

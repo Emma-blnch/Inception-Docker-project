@@ -7,7 +7,7 @@ services:
             - inception
         depends_on:
             - wordpress
-        image: nginx
+        image: inception-nginx
         build:
             context: requirements/nginx
             dockerfile: Dockerfile
@@ -19,7 +19,7 @@ services:
         container_name: mariadb
         networks:
             - inception
-        image: mariadb
+        image: inception-mariadb
         build:
             context: requirements/mariadb
             dockerfile: Dockerfile
@@ -33,7 +33,7 @@ services:
             - inception
         depends_on:
             - mariadb
-        image: wordpress
+        image: inception-wordpress
         build:
             context: requirements/wordpress
             dockerfile: Dockerfile
