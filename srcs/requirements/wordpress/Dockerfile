@@ -6,8 +6,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y wget\
     ln -s /usr/sbin/php-fpm7.4 /usr/sbin/php-fpm &&\
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN wget https://fr.wordpress.org/latest-fr_FR.tar.gz -P /var/www &&\
-    cd /var/www && tar -xzf latest-fr_FR.tar.gz && rm latest-fr_FR.tar.gz
+RUN wget https://wordpress.org/latest.tar.gz -P /var/www &&\
+    cd /var/www && tar -xzf latest.tar.gz && rm latest.tar.gz
 
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp

@@ -17,6 +17,9 @@ if [ ! -f /var/www/wordpress/wp-config.php ]; then
 
     wp config shuffle-salts --path=/var/www/wordpress --allow-root
 
+    wp language core install fr_FR --path=/var/www/wordpress --allow-root
+    wp language core activate fr_FR --path=/var/www/wordpress --allow-root
+
     wp core install \
     --url="https://${DOMAIN_NAME}" \
     --title="Mon site WordPress" \
