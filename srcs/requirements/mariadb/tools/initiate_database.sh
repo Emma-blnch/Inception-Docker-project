@@ -6,8 +6,8 @@ set -e
 if [ ! -d "/var/lib/mysql/${MYSQL_DATABASE}" ]; then
     echo "Initialisation de la base de donnees..."
 
-    mysqld --initialize-insecure
-    mysqld_safe --skip-networking &
+    mysql_install_db --user=mysql --datadir=/var/lib/mysql
+    mysqld_safe --skip-networking --user=mysql &
     pid="$!"
 
     # Attendre que le daemon MariaDB soit prêt à accepter les connexions (optionnel mais plus propre)

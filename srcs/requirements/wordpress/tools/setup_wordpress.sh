@@ -34,6 +34,23 @@ if [ ! -f /var/www/wordpress/wp-config.php ]; then
 
     wp config shuffle-salts --path=/var/www/wordpress --allow-root
 
+    wp core install \
+    --url="https://${DOMAIN_NAME}" \
+    --title="Mon site WordPress" \
+    --admin_user="${WP_ADMIN_USER}" \
+    --admin_password="${WP_ADMIN_PASSWORD}" \
+    --admin_email="${WP_ADMIN_EMAIL}" \
+    --path=/var/www/wordpress \
+    --skip-email \
+    --allow-root
+
+    # créer un second utilisateur classique
+    wp user create "${WP_USER}" "${WP_USER}@example.com" \
+        --user_pass="${WP_PASSWORD}" \
+        --role=author \
+        --path=/var/www/wordpress \
+        --allow-root
+
 fi
 
 chown -R www-data:www-data /var/www/wordpress
