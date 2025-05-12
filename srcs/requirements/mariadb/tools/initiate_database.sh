@@ -1,11 +1,12 @@
 #!/bin/sh
+set -e
 
-service mysql start;
+service mysql start
 
 # Attendre que le daemon MariaDB soit prêt à accepter les connexions (optionnel mais plus propre)
-# until mysqladmin ping --silent; do
-#     sleep 1
-# done
+until mysqladmin ping --silent; do
+    sleep 1
+done
 
 mysql -e "CREATE DATABASE IF NOT EXISTS \`${MYSQL_DATABASE}\`;"
 
