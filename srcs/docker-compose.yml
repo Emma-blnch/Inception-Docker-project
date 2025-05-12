@@ -7,6 +7,7 @@ services:
             - inception
         depends_on:
             - wordpress
+            
         image: inception-nginx
         build:
             context: requirements/nginx
@@ -14,6 +15,8 @@ services:
         env_file: .env
         ports:
             - "443:443"
+        volumes:
+            - wordpress:/var/www/wordpress
         restart: unless-stopped
     mariadb:
         container_name: mariadb
