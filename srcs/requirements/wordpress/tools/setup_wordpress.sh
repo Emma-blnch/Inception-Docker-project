@@ -11,6 +11,7 @@ if [ "$CURRENT_VERSION" != "6.8.1" ]; then
     echo "Mise à jour forcée de WordPress vers 6.8.1..."
     rm -rf /var/www/wordpress/*
     wp core download --version=6.8.1 --path=/var/www/wordpress --force --allow-root
+    wp theme install twentytwentyfour --activate --path=/var/www/wordpress --allow-root
 else
     echo "WordPress est déjà en version 6.8.1, pas de mise à jour nécessaire."
 fi
@@ -40,6 +41,7 @@ if [ ! -f /var/www/wordpress/wp-config.php ]; then
     --admin_email="${WP_ADMIN_EMAIL}" \
     --path=/var/www/wordpress \
     --skip-email \
+    --skip-themes --skip-plugins \
     --allow-root
 
     # créer un second utilisateur classique
@@ -48,8 +50,6 @@ if [ ! -f /var/www/wordpress/wp-config.php ]; then
         --role=author \
         --path=/var/www/wordpress \
         --allow-root
-
-    wp theme install twentytwentyfour --activate --path=/var/www/wordpress --allow-root
 
 fi
 
