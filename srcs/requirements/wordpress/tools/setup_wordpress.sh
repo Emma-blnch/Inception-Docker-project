@@ -4,18 +4,13 @@ set -e
 # le temps que mariadb soit prêt
 sleep 10
 
-# Si WordPress est déjà installé mais trop ancien → forcer update
-# CURRENT_VERSION=$(wp core version --path=/var/www/wordpress --allow-root 2>/dev/null || echo "none")
+# Télécharger WordPress si nécessaire
+if [ ! -d /var/www/wordpress/wp-includes ]; then
+    echo "Téléchargement WordPress 6.8.1..."
+    wp core download --version=6.8.1 --path=/var/www/wordpress --force --allow-root
+fi
 
-# if [ "$CURRENT_VERSION" != "6.8.1" ]; then
-#     echo "Mise à jour forcée de WordPress vers 6.8.1..."
-#     rm -rf /var/www/wordpress/*
-#     wp core download --version=6.8.1 --path=/var/www/wordpress --force --allow-root
-#     wp theme install twentytwentyfour --activate --path=/var/www/wordpress --allow-root
-# else
-#     echo "WordPress est déjà en version 6.8.1, pas de mise à jour nécessaire."
-# fi
-
+wp theme install twentytwentyfour --path=/var/www/wordpress --allow-root
 
 if [ ! -f /var/www/wordpress/wp-config.php ]; then
     echo "Création du fichier wp-config.php..."
@@ -41,8 +36,9 @@ if [ ! -f /var/www/wordpress/wp-config.php ]; then
     --admin_email="${WP_ADMIN_EMAIL}" \
     --path=/var/www/wordpress \
     --skip-email \
-    --skip-themes --skip-plugins \
     --allow-root
+
+    wp theme install twentytwentyfour --activate --path=/var/www/wordpress --allow-root
 
     # créer un second utilisateur classique
     wp user create "${WP_USER}" "${WP_USER}@example.com" \
@@ -50,8 +46,6 @@ if [ ! -f /var/www/wordpress/wp-config.php ]; then
         --role=author \
         --path=/var/www/wordpress \
         --allow-root
-
-    wp theme install twentytwentyfour --activate --path=/var/www/wordpress --allow-root
 
 fi
 
