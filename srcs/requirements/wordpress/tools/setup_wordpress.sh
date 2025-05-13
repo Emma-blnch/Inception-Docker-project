@@ -4,6 +4,18 @@ set -e
 # le temps que mariadb soit prêt
 sleep 10
 
+# Si WordPress est déjà installé mais trop ancien → forcer update
+CURRENT_VERSION=$(wp core version --path=/var/www/wordpress --allow-root 2>/dev/null || echo "none")
+
+if [ "$CURRENT_VERSION" != "6.8.1" ]; then
+    echo "Mise à jour forcée de WordPress vers 6.8.1..."
+    rm -rf /var/www/wordpress/*
+    wp core download --version=6.8.1 --path=/var/www/wordpress --force --allow-root
+else
+    echo "WordPress est déjà en version 6.8.1, pas de mise à jour nécessaire."
+fi
+
+
 if [ ! -f /var/www/wordpress/wp-config.php ]; then
     echo "Création du fichier wp-config.php..."
 
