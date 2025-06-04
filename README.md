@@ -22,8 +22,10 @@ It aims to configure a complete infrastructure of services using **Docker** and 
 ## 🧠 What I learned
 
 Working on this project taught me much more than just Docker:   
-✅ **Containerization fundamentals**: building and managing isolated environments for each service   
+✅ **Containerization fundamentals**: building and managing isolated environments for each service  
+
 ✅ **Docker Compose orchestration**: configuring and linking multiple containers seamlessly   
+
 ✅ **Security best practices**: setting up users, permissions, SSL, and limiting container privileges   
 ✅ **Automation and reproducibility**: creating a consistent, portable development environment   
 ✅ **Problem-solving**: debugging container issues, analyzing logs, and optimizing configuration files   
