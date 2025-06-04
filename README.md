@@ -26,9 +26,12 @@ Working on this project taught me much more than just Docker:
 
 ✅ **Docker Compose orchestration**: configuring and linking multiple containers seamlessly   
 
-✅ **Security best practices**: setting up users, permissions, SSL, and limiting container privileges   
+✅ **Security best practices**: setting up users, permissions, SSL, and limiting container privileges  
+
 ✅ **Automation and reproducibility**: creating a consistent, portable development environment   
-✅ **Problem-solving**: debugging container issues, analyzing logs, and optimizing configuration files   
+
+✅ **Problem-solving**: debugging container issues, analyzing logs, and optimizing configuration files  
+
 ✅ **System-level understanding**: how services interact, boot sequence matters, and persistent volumes behave   
 
 > It also reinforced key soft skills like rigor, autonomy, and documentation clarity — essential in real-world DevOps work.   
