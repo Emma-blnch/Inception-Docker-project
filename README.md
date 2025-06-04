@@ -21,7 +21,7 @@ It aims to configure a complete infrastructure of services using **Docker** and 
 
 ## 🧠 What I learned
 
-Working on this project taught me much more than just Docker:
+Working on this project taught me much more than just Docker:   
 ✅ **Containerization fundamentals**: building and managing isolated environments for each service   
 ✅ **Docker Compose orchestration**: configuring and linking multiple containers seamlessly   
 ✅ **Security best practices**: setting up users, permissions, SSL, and limiting container privileges   
@@ -29,7 +29,7 @@ Working on this project taught me much more than just Docker:
 ✅ **Problem-solving**: debugging container issues, analyzing logs, and optimizing configuration files   
 ✅ **System-level understanding**: how services interact, boot sequence matters, and persistent volumes behave   
 
-It also reinforced key soft skills like rigor, autonomy, and documentation clarity — essential in real-world DevOps work.   
+> It also reinforced key soft skills like rigor, autonomy, and documentation clarity — essential in real-world DevOps work.   
 
 ## 📁 Project structure
 
